@@ -1,0 +1,25 @@
+From: demo@sconzopen.app
+To: reviewer@apple.com
+Subject: Sample Email for SconzOpen Review
+Date: Mon, 16 Dec 2025 14:00:00 +0100
+Content-Type: text/plain; charset=UTF-8
+
+Hello Apple Review Team,
+
+This is a sample email file (.eml) for testing SconzOpen app.
+
+SconzOpen allows users to:
+- Open and view .eml email files
+- Read email content offline
+- Manage saved emails from various sources
+
+Features to test:
+1. Import this .eml file into the app
+2. View the email content
+3. Navigate through email headers and body
+4. Test any additional file management features
+
+Thank you for reviewing SconzOpen!
+
+Best regards,
+SconzOpen Team
