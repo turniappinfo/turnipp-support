@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TurniPP Web Scheduler</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">TurniPP Web</p>
+          <h1>Programmatore web per agenti e coordinatori</h1>
+          <p class="hero-copy">
+            Crea il programmato dal browser, esporta il file compatibile con TurniPP e invialo al coordinatore anche da Android o PC.
+          </p>
+        </div>
+        <div class="hero-card">
+          <p class="hero-card-title">Output compatibile</p>
+          <p class="hero-card-copy">Genera file .turniPP con lo stesso formato importato dall'app iOS.</p>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel panel-form">
+          <div class="section-head">
+            <h2>Dati invio</h2>
+            <button id="resetButton" class="ghost-button" type="button">Reset</button>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              <span>Il tuo nome</span>
+              <input id="senderName" type="text" placeholder="Es. Assistente Marco Rossi" />
+            </label>
+            <label>
+              <span>Ufficio / reparto</span>
+              <input id="serviceLocation" type="text" placeholder="Es. Ufficio Volanti Roma" />
+            </label>
+            <label>
+              <span>Coordinatore</span>
+              <input id="coordinatorName" type="text" placeholder="Es. Sov. Capo Bianchi" />
+            </label>
+            <label>
+              <span>Email coordinatore</span>
+              <input id="coordinatorEmail" type="email" placeholder="coordinatore@example.com" />
+            </label>
+            <label>
+              <span>Mese</span>
+              <input id="scheduleMonth" type="month" />
+            </label>
+            <label>
+              <span>Titolo mese</span>
+              <input id="monthLabel" type="text" placeholder="Generato automaticamente" />
+            </label>
+          </div>
+
+          <div class="section-head members-head">
+            <h2>Colleghi nel programmato</h2>
+            <button id="addMemberButton" class="primary-button" type="button">Aggiungi collega</button>
+          </div>
+          <div id="membersList" class="member-list"></div>
+        </section>
+
+        <section class="panel panel-scheduler">
+          <div class="section-head">
+            <div>
+              <h2>Assegna i turni</h2>
+              <p id="schedulerSubtitle" class="muted">Seleziona o aggiungi un collega per iniziare.</p>
+            </div>
+            <div class="pill-row">
+              <span class="pill">M 08/14</span>
+              <span class="pill">P 14/20</span>
+              <span class="pill">N 20/08</span>
+            </div>
+          </div>
+
+          <div class="shift-toolbar">
+            <label>
+              <span>Turno rapido</span>
+              <select id="quickShiftSelect"></select>
+            </label>
+            <button id="applyAllButton" class="secondary-button" type="button">Applica a tutti i giorni liberi</button>
+          </div>
+
+          <div id="calendarGrid" class="calendar-grid empty-state">
+            Seleziona un collega per vedere il calendario del mese.
+          </div>
+        </section>
+      </main>
+
+      <section class="panel panel-actions">
+        <div>
+          <h2>Esporta e invia</h2>
+          <p class="muted">
+            Il coordinatore potrà importare il file in TurniPP e aggiungerlo al team. Se il browser supporta la condivisione file, puoi inviarlo direttamente.
+          </p>
+        </div>
+        <div class="action-row">
+          <button id="downloadButton" class="primary-button" type="button">Scarica file .turniPP</button>
+          <button id="shareButton" class="secondary-button" type="button">Condividi al coordinatore</button>
+          <button id="copyJsonButton" class="ghost-button" type="button">Copia JSON</button>
+        </div>
+        <div id="statusBox" class="status-box" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <template id="memberItemTemplate">
+      <article class="member-card">
+        <button class="member-card-main" type="button">
+          <div>
+            <p class="member-rank"></p>
+            <h3 class="member-name"></h3>
+          </div>
+          <span class="member-count"></span>
+        </button>
+        <div class="member-actions">
+          <input class="member-rank-input" type="text" placeholder="Grado" />
+          <input class="member-name-input" type="text" placeholder="Nome e cognome" />
+          <button class="ghost-button member-remove-button" type="button">Elimina</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
